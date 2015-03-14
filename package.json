@@ -26,6 +26,7 @@
     "object-tools": "^1.2.1"
   },
   "devDependencies": {
+    "tap-spec": "^2.2.2",
     "tape": "^3.5.0"
   },
   "license": "MIT"
