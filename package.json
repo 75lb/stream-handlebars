@@ -17,12 +17,13 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "tape test/*.js",
+    "test": "tape test/*.js |tap-spec",
     "lint": "jshint lib/*.js bin/*.js test/*.js; echo",
     "docs": "jsdoc2md -t jsdoc2md/README.hbs -l js lib/*.js > README.md; echo"
   },
   "dependencies": {
-    "handlebars": "^3.0.0"
+    "handlebars": "^3.0.0",
+    "object-tools": "^1.2.1"
   },
   "devDependencies": {
     "tape": "^3.5.0"

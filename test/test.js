@@ -20,6 +20,20 @@ test("text interface", function(t){
     compileStream.end(data);
 });
 
+test("text interface with default data", function(t){
+    t.plan(1);
+    var data = '{ "message": "test, yeah?" }';
+    var template = "result {{one}}: {{message}}";
+    var compileStream = streamHandlebars.createCompileStream(template, { data: { one: 1 }});
+    compileStream.on("readable", function(){
+        var chunk = this.read();
+        if (chunk){
+            t.strictEqual(chunk.toString(), "result 1: test, yeah?");
+        }
+    })
+    compileStream.end(data);
+});
+
 test("objectMode", function(t){
     t.plan(1);
     var data = { message: "objectMode", other: "something" };
