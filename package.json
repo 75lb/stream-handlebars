@@ -1,0 +1,26 @@
+{
+  "name": "stream-handlebars",
+  "author": "Lloyd Brookes <75pound@gmail.com>",
+  "version": "0.0.0",
+  "description": "stream-handlebars",
+  "repository": "https://github.com/75lb/stream-handlebars.git",
+  "main": "./lib/stream-handlebars.js",
+  "bin": {
+    "stream-handlebars": "bin/cli.js"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "lint": "jshint lib/*.js bin/*.js test/*.js; echo",
+    "docs": "jsdoc2md -t jsdoc2md/README.hbs -l js lib/*.js > README.md; echo"
+  },
+  "dependencies": {
+    "handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "tape": "^3.5.0"
+  }
+}
