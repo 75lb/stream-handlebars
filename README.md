@@ -5,16 +5,21 @@
 
 <a name="module_stream-handlebars"></a>
 ## stream-handlebars
-Extends handlebars with a single method - a stream wrapper for .compile().
+Extends handlebars with a streaming interface for .compile().
 
 **Example**  
 ```js
 var handlebars = require("stream-handlebars");
+var myHelpers = require("./myHelpers");
 var template = "<p>\{{paragraph}}</p>"
 
+// it's just regular handlebars..
 handlebars.registerHelper(myHelpers);
 
-process.stdin.pipe(handlebars.createCompileStream(template)).pipe(process.stdout);
+// ..with the addition of a streaming interface for .compile()
+var compileStream = handlebars.createCompileStream(template);
+
+process.stdin.pipe(compileStream).pipe(process.stdout);
 ```
 
 * [stream-handlebars](#module_stream-handlebars)

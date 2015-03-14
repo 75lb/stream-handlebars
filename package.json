@@ -2,13 +2,13 @@
   "name": "stream-handlebars",
   "author": "Lloyd Brookes <75pound@gmail.com>",
   "version": "0.1.0",
-  "description": "stream-handlebars",
+  "description": "Extends handlebars with a streaming interface for .compile()",
   "repository": "https://github.com/75lb/stream-handlebars.git",
   "main": "./lib/stream-handlebars.js",
   "bin": {
     "stream-handlebars": "bin/cli.js"
   },
-  "keywords": [],
+  "keywords": [ "handlebars", "stream", "compile" ],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -22,5 +22,6 @@
   },
   "devDependencies": {
     "tape": "^3.5.0"
-  }
+  },
+  "license": "MIT"
 }
