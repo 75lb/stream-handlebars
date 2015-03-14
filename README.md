@@ -28,6 +28,8 @@ process.stdin.pipe(compileStream).pipe(process.stdout);
 
 <a name="exp_module_stream-handlebars--handlebars"></a>
 ### handlebars : <code>object</code> ⏏
+The regular [handlebars](http://handlebarsjs.com) module.
+
 **Extends:** <code>[handlebars](http://handlebarsjs.com)</code>  
 **Kind**: Exported namespace  
 <a name="module_stream-handlebars--handlebars.createCompileStream"></a>
