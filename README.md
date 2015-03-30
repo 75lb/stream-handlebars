@@ -12,6 +12,7 @@ Extends handlebars with a streaming interface for .compile().
 var handlebars = require("stream-handlebars");
 var myHelpers = require("./myHelpers");
 var template = "<p>\{{paragraph}}</p>"
+var fs = require("fs");
 
 // it's just regular handlebars..
 handlebars.registerHelper(myHelpers);
@@ -19,7 +20,10 @@ handlebars.registerHelper(myHelpers);
 // ..with the addition of a streaming interface for .compile()
 var compileStream = handlebars.createCompileStream(template);
 
-process.stdin.pipe(compileStream).pipe(process.stdout);
+// the template is compiled using the piped-in JSON as context
+fs.createReadStream("./template-data.json", "utf8")
+    .pipe(compileStream)
+    .pipe(process.stdout);
 ```
 
 * [stream-handlebars](#module_stream-handlebars)
@@ -43,6 +47,7 @@ a stream wrapper for the [handlebars.compile](http://handlebarsjs.com/reference.
 | template | <code>string</code> | required template |
 | [options] | <code>object</code> | options passed to both Transform() and .compile() |
 | [options.objectMode] | <code>object</code> | set to true if you wish you pass in the data as an object |
+| [options.data] | <code>object</code> | default data object |
 
 
 * * *

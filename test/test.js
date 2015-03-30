@@ -7,6 +7,20 @@ test("regular handlebars API exists", function(t){
     t.end();
 });
 
+test("events", function(t){
+    t.plan(3);
+    var data = '{ "message": "test, yeah?" }';
+    var compileStream = streamHandlebars.createCompileStream("result: {{message}}");
+    compileStream.on("end", t.pass.bind(null, "end fired"));
+    compileStream.on("finish", t.pass.bind(null, "finish fired"));
+    compileStream.on("readable", function(){
+        if (this.read()){
+            t.pass("readable fired");
+        }
+    });
+    compileStream.end(data);
+});
+
 test("text interface", function(t){
     t.plan(1);
     var data = '{ "message": "test, yeah?" }';
@@ -22,7 +36,7 @@ test("text interface", function(t){
 
 test("text interface with default data", function(t){
     t.plan(1);
-    var data = '{ "message": "test, yeah?" }';
+    var input = '{ "message": "test, yeah?" }';
     var template = "result {{one}}: {{message}}";
     var compileStream = streamHandlebars.createCompileStream(template, { data: { one: 1 }});
     compileStream.on("readable", function(){
@@ -30,8 +44,8 @@ test("text interface with default data", function(t){
         if (chunk){
             t.strictEqual(chunk.toString(), "result 1: test, yeah?");
         }
-    })
-    compileStream.end(data);
+    });
+    compileStream.end(input);
 });
 
 test("objectMode", function(t){
