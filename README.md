@@ -34,8 +34,8 @@ fs.createReadStream("./template-data.json", "utf8")
 ### handlebars : <code>object</code> ⏏
 The regular [handlebars](http://handlebarsjs.com) module.
 
-**Extends:** <code>[handlebars](http://handlebarsjs.com)</code>  
 **Kind**: Exported namespace  
+**Extends:** <code>[handlebars](http://handlebarsjs.com)</code>  
 <a name="module_stream-handlebars--handlebars.createCompileStream"></a>
 #### handlebars.createCompileStream(template, [options]) ⇒ <code>[Transform](https://nodejs.org/api/stream.html#stream_class_stream_transform)</code>
 a stream wrapper for the [handlebars.compile](http://handlebarsjs.com/reference.html) function
