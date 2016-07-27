@@ -15,16 +15,15 @@
   },
   "scripts": {
     "test": "tape test/*.js",
-    "lint": "jshint lib/*.js test/*.js; echo",
     "docs": "jsdoc2md -t jsdoc2md/README.hbs -l js lib/*.js > README.md; echo"
   },
   "dependencies": {
-    "handlebars": "^3.0.0",
-    "object-tools": "^1.2.1"
+    "handlebars": "^4.0.5",
+    "object-tools": "^2.0.6"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "^1.1.1",
-    "tape": "^4"
+    "jsdoc-to-markdown": "^1.3.6",
+    "tape": "^4.6.0"
   },
   "license": "MIT"
 }
